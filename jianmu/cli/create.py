@@ -55,7 +55,7 @@ def __func(args):
         'ELECTRON_MIRROR': 'https://npmmirror.com/mirrors/electron/',
     }
     proc = subprocess.run(
-        [NPM_EXECUTABLE, 'install', '--registry=https://registry.npmmirror.com'],
+        [NPM_EXECUTABLE, 'install', '--registry=https://nexus.dev.loeyae.com/repository/npm-group/'],
         cwd=str(project_dir),
         env=env,
     )
@@ -71,7 +71,7 @@ def __func(args):
     proc = subprocess.run(
         [
             PYTHON_EXECUTABLE, '-m', 'pip', 'install', '-r', 'requirements.txt',
-            '--index-url=https://pypi.tuna.tsinghua.edu.cn/simple'
+            '--index-url=https://nexus.dev.loeyae.com/repository/pypi-group/'
         ],
         cwd=str(project_dir),
         env=env,
