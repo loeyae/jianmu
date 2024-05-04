@@ -9,6 +9,8 @@ from typing import List
 def init_parser(subparsers):
     parser: ArgumentParser = subparsers.add_parser(
         'build', help='Build the jianmu application.')
+    parser.add_argument('--mode', choices=['server', 'ui'],
+                        default='ui', help='Build mode.')
     parser.set_defaults(func=__func)
 
 
@@ -30,6 +32,8 @@ def __func(args):
         str(JIANMU_PATH),
         '--project-path',
         str(PROJECT_PATH),
+        '--mode',
+        args.mode,
     ]
     try:
         subprocess.run(run_jianmu_js_args, cwd=PROJECT_PATH)
