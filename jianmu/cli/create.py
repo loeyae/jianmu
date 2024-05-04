@@ -28,7 +28,7 @@ def __func(args):
         print(' * The project directory already exists, please use a different name.')
         exit(0)
     print(f' * Creating a new Jianmu project named {project_name}')
-    template_url = 'https://ghproxy.com/https://github.com/frederick-wang/jianmu-template/archive/main.zip'
+    template_url = 'https://ghproxy.com/https://github.com/loeyae/jianmu-template/archive/main.zip'
     print('\n * Downloading the template...')
     print(' * (This may take a while, and the program will wait at most 30 seconds)')
     try:

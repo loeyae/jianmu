@@ -213,3 +213,19 @@ def beep() -> None:
         if can_be_returned:
             return None
         socketio.sleep(0.05)  # type: ignore
+
+
+def webcontent_func(func: str, *args: Any) -> None:
+    can_be_returned: Any = None
+
+    def callback(result: Any) -> None:
+        nonlocal can_be_returned
+        can_be_returned = result
+
+    socketio = get_socketio()
+    socketio.emit('Action:beep', {'args': [func, *args]}, callback=callback)
+
+    while True:
+        if can_be_returned:
+            return can_be_returned
+        socketio.sleep(0.05)  # type: ignore

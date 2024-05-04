@@ -6,3 +6,4 @@ requests
 rich
 pyreactivity
 dataclasses
+typing_extensions
